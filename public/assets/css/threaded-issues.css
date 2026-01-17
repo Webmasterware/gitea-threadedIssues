@@ -1,0 +1,149 @@
+/* Default: hide timeline events (label changes, status, etc.) */
+:root {
+  --ti-guide-color: var(--color-secondary-alpha-50, rgba(0, 0, 0, 0.1));
+  --ti-guide-width: 2px;
+  --ti-guide-gap: 24px;
+  /* Matches JS indent step roughly */
+}
+
+.threaded-issues-hide-events .timeline-item.event {
+  display: none !important;
+}
+
+/* Indentation for threaded comments */
+.threaded-issues-threaded .timeline-item.comment {
+  position: relative !important;
+}
+
+.threaded-issues-threaded .ti-indent-1 {
+  margin-left: 64px !important;
+  border-left: var(--ti-guide-width) solid var(--ti-guide-color);
+  padding-left: 12px;
+}
+
+.threaded-issues-threaded .ti-indent-2 {
+  margin-left: 112px !important;
+  border-left: var(--ti-guide-width) solid var(--ti-guide-color);
+  padding-left: 12px;
+}
+
+.threaded-issues-threaded .ti-indent-3 {
+  margin-left: 160px !important;
+  border-left: var(--ti-guide-width) solid var(--ti-guide-color);
+  padding-left: 12px;
+}
+
+.threaded-issues-threaded .ti-indent-4 {
+  margin-left: 208px !important;
+  border-left: var(--ti-guide-width) solid var(--ti-guide-color);
+  padding-left: 12px;
+}
+
+/* Hidden events placeholder */
+.threaded-issues-event-placeholder {
+  margin: 6px 0;
+}
+
+.threaded-issues-event-toggle {
+  cursor: pointer;
+  border: 1px dashed var(--color-secondary, #ccc);
+  background: transparent;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Small UI bar */
+.threaded-issues-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 8px 0 12px;
+  position: sticky;
+  top: 8px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: var(--color-body, #fff);
+  border: 1px solid currentColor;
+  border-radius: 0px;
+  padding: 6px 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.threaded-issues-controls button {
+  cursor: pointer;
+  padding: 4px 8px;
+  border: 1px solid var(--color-secondary, #ccc);
+  border-radius: 6px;
+  background: transparent;
+}
+
+.threaded-issues-controls button.is-active {
+  border-color: var(--color-primary);
+  box-shadow: inset 0 0 0 1px var(--color-primary);
+  background: var(--color-primary-alpha-10);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.threaded-issues-controls .muted {
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+/* Collapse / Expand Toggle */
+.ti-toggle {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--color-text-light);
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 0 4px;
+  margin-right: 4px;
+  border-radius: 4px;
+}
+
+.ti-toggle:hover {
+  background-color: var(--color-hover);
+  color: var(--color-text);
+}
+
+/* Collapsed state */
+.ti-collapsed-summary {
+  display: none;
+  font-style: italic;
+  color: var(--color-text-light-2);
+  margin-left: 44px;
+  /* align with avatar */
+  margin-top: 4px;
+  font-size: 13px;
+  padding: 4px 8px;
+  background: var(--color-markup-code-block);
+  border-radius: 4px;
+}
+
+.ti-collapsed-summary .ti-child-preview-text {
+  color: var(--color-text);
+  font-style: normal;
+  display: inline-block;
+  margin-left: 8px;
+  opacity: 0.8;
+}
+
+.timeline-item.comment.is-collapsed .comment-body>*:not(.ti-collapsed-summary) {
+  display: none !important;
+}
+
+.timeline-item.comment.is-collapsed .ti-collapsed-summary {
+  display: block;
+}
+
+/* Hidden children (when parent is collapsed) */
+.ti-hidden-child {
+  display: none !important;
+}
