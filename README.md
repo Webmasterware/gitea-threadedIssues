@@ -96,4 +96,4 @@ Requires modern browser with support for:
 
 ## License
 
-[MIT](LICENSE.md)
+[MIT](LICENSE.txt)
